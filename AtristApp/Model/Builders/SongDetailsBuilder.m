@@ -66,11 +66,11 @@ static NSString *type = @"type";
 - (BOOL)isKeyExist:(NSString*)key
 {
     if([resultDic valueForKey:key] != nil) {
-        // The key existed...
+        // The key existed
         return YES;
     }
     else {
-        // No joy...
+        // No 
         return NO;
     }
 }
