@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D03E8181E3D7FD3007303BF /* SongDetailsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8171E3D7FD3007303BF /* SongDetailsBuilder.m */; };
 		7D304F8D1E3C699D008D422E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304F8C1E3C699D008D422E /* main.m */; };
 		7D304F901E3C699D008D422E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304F8F1E3C699D008D422E /* AppDelegate.m */; };
 		7D304F931E3C699D008D422E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304F921E3C699D008D422E /* ViewController.m */; };
@@ -15,6 +16,11 @@
 		7D304F9B1E3C699D008D422E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D304F991E3C699D008D422E /* LaunchScreen.storyboard */; };
 		7D304FA61E3C699D008D422E /* AtristAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FA51E3C699D008D422E /* AtristAppTests.m */; };
 		7D304FB11E3C699D008D422E /* AtristAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FB01E3C699D008D422E /* AtristAppUITests.m */; };
+		7D304FC01E3C6C5B008D422E /* ArtistFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FBF1E3C6C5B008D422E /* ArtistFacade.m */; };
+		7D304FC51E3C7794008D422E /* ArtistWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FC41E3C7794008D422E /* ArtistWebService.m */; };
+		7D304FC81E3C789C008D422E /* AbstractWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FC71E3C789C008D422E /* AbstractWebService.m */; };
+		7D304FCC1E3C79CC008D422E /* JasonResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FCB1E3C79CC008D422E /* JasonResponseSerializer.m */; };
+		7D304FD11E3CC563008D422E /* SongDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FD01E3CC563008D422E /* SongDetails.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D03E8151E3D7DCF007303BF /* PEntiityBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEntiityBuilder.h; path = Model/Builders/PEntiityBuilder.h; sourceTree = "<group>"; };
+		7D03E8161E3D7FD3007303BF /* SongDetailsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongDetailsBuilder.h; path = Model/Builders/SongDetailsBuilder.h; sourceTree = "<group>"; };
+		7D03E8171E3D7FD3007303BF /* SongDetailsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongDetailsBuilder.m; path = Model/Builders/SongDetailsBuilder.m; sourceTree = "<group>"; };
 		7D304F881E3C699D008D422E /* AtristApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtristApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D304F8C1E3C699D008D422E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D304F8E1E3C699D008D422E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +60,20 @@
 		7D304FAC1E3C699D008D422E /* AtristAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtristAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D304FB01E3C699D008D422E /* AtristAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtristAppUITests.m; sourceTree = "<group>"; };
 		7D304FB21E3C699D008D422E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D304FBE1E3C6C5B008D422E /* ArtistFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistFacade.h; sourceTree = "<group>"; };
+		7D304FBF1E3C6C5B008D422E /* ArtistFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistFacade.m; sourceTree = "<group>"; };
+		7D304FC21E3C75C2008D422E /* PService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PService.h; path = ServiceLayer/PService.h; sourceTree = "<group>"; };
+		7D304FC31E3C7794008D422E /* ArtistWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArtistWebService.h; path = ServiceLayer/ArtistWebService.h; sourceTree = "<group>"; };
+		7D304FC41E3C7794008D422E /* ArtistWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArtistWebService.m; path = ServiceLayer/ArtistWebService.m; sourceTree = "<group>"; };
+		7D304FC61E3C789C008D422E /* AbstractWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractWebService.h; path = ServiceLayer/AbstractWebService.h; sourceTree = "<group>"; };
+		7D304FC71E3C789C008D422E /* AbstractWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractWebService.m; path = ServiceLayer/AbstractWebService.m; sourceTree = "<group>"; };
+		7D304FC91E3C7993008D422E /* PResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PResponseSerializer.h; path = ServiceLayer/PResponseSerializer.h; sourceTree = "<group>"; };
+		7D304FCA1E3C79CC008D422E /* JasonResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JasonResponseSerializer.h; path = ServiceLayer/JasonResponseSerializer.h; sourceTree = "<group>"; };
+		7D304FCB1E3C79CC008D422E /* JasonResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JasonResponseSerializer.m; path = ServiceLayer/JasonResponseSerializer.m; sourceTree = "<group>"; };
+		7D304FCE1E3CC548008D422E /* PEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEntity.h; path = Model/PEntity.h; sourceTree = "<group>"; };
+		7D304FCF1E3CC563008D422E /* SongDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongDetails.h; sourceTree = "<group>"; };
+		7D304FD01E3CC563008D422E /* SongDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongDetails.m; sourceTree = "<group>"; };
+		7D6CE56C1E3CD62500584A9E /* PSongDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSongDetails.h; path = Model/PSongDetails.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +124,8 @@
 		7D304F8A1E3C699D008D422E /* AtristApp */ = {
 			isa = PBXGroup;
 			children = (
+				7D304FCD1E3CC4F1008D422E /* Model */,
+				7D304FC11E3C7392008D422E /* ServiceLayer */,
 				7D304F8E1E3C699D008D422E /* AppDelegate.h */,
 				7D304F8F1E3C699D008D422E /* AppDelegate.m */,
 				7D304F911E3C699D008D422E /* ViewController.h */,
@@ -110,6 +135,8 @@
 				7D304F991E3C699D008D422E /* LaunchScreen.storyboard */,
 				7D304F9C1E3C699D008D422E /* Info.plist */,
 				7D304F8B1E3C699D008D422E /* Supporting Files */,
+				7D304FBE1E3C6C5B008D422E /* ArtistFacade.h */,
+				7D304FBF1E3C6C5B008D422E /* ArtistFacade.m */,
 			);
 			path = AtristApp;
 			sourceTree = "<group>";
@@ -138,6 +165,43 @@
 				7D304FB21E3C699D008D422E /* Info.plist */,
 			);
 			path = AtristAppUITests;
+			sourceTree = "<group>";
+		};
+		7D304FC11E3C7392008D422E /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7D304FC21E3C75C2008D422E /* PService.h */,
+				7D304FC31E3C7794008D422E /* ArtistWebService.h */,
+				7D304FC41E3C7794008D422E /* ArtistWebService.m */,
+				7D304FC61E3C789C008D422E /* AbstractWebService.h */,
+				7D304FC71E3C789C008D422E /* AbstractWebService.m */,
+				7D304FC91E3C7993008D422E /* PResponseSerializer.h */,
+				7D304FCA1E3C79CC008D422E /* JasonResponseSerializer.h */,
+				7D304FCB1E3C79CC008D422E /* JasonResponseSerializer.m */,
+			);
+			name = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		7D304FCD1E3CC4F1008D422E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D6CE56D1E3CD92C00584A9E /* Builders */,
+				7D304FCF1E3CC563008D422E /* SongDetails.h */,
+				7D304FD01E3CC563008D422E /* SongDetails.m */,
+				7D304FCE1E3CC548008D422E /* PEntity.h */,
+				7D6CE56C1E3CD62500584A9E /* PSongDetails.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7D6CE56D1E3CD92C00584A9E /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				7D03E8151E3D7DCF007303BF /* PEntiityBuilder.h */,
+				7D03E8161E3D7FD3007303BF /* SongDetailsBuilder.h */,
+				7D03E8171E3D7FD3007303BF /* SongDetailsBuilder.m */,
+			);
+			name = Builders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +271,7 @@
 				TargetAttributes = {
 					7D304F871E3C699D008D422E = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = DNSTESXL8W;
 						ProvisioningStyle = Automatic;
 					};
 					7D304FA01E3C699D008D422E = {
@@ -273,9 +338,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D304FC51E3C7794008D422E /* ArtistWebService.m in Sources */,
+				7D304FC01E3C6C5B008D422E /* ArtistFacade.m in Sources */,
+				7D304FC81E3C789C008D422E /* AbstractWebService.m in Sources */,
 				7D304F931E3C699D008D422E /* ViewController.m in Sources */,
 				7D304F901E3C699D008D422E /* AppDelegate.m in Sources */,
+				7D03E8181E3D7FD3007303BF /* SongDetailsBuilder.m in Sources */,
+				7D304FD11E3CC563008D422E /* SongDetails.m in Sources */,
 				7D304F8D1E3C699D008D422E /* main.m in Sources */,
+				7D304FCC1E3C79CC008D422E /* JasonResponseSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DNSTESXL8W;
 				INFOPLIST_FILE = AtristApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zebra.AtristApp;
@@ -433,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DNSTESXL8W;
 				INFOPLIST_FILE = AtristApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zebra.AtristApp;
@@ -505,6 +578,7 @@
 				7D304FB71E3C699D008D422E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D304FB81E3C699D008D422E /* Build configuration list for PBXNativeTarget "AtristAppTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +587,7 @@
 				7D304FBA1E3C699D008D422E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D304FBB1E3C699D008D422E /* Build configuration list for PBXNativeTarget "AtristAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +596,7 @@
 				7D304FBD1E3C699D008D422E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

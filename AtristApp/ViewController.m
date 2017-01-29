@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ArtistFacade.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    ArtistFacade *f = [ArtistFacade getSharedInstance];
+    [f callArtistService:^(NSArray *resultArray, NSError *error) {
+        NSLog(@"");
+    }];
 }
 
 
