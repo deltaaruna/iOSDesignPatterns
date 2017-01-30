@@ -11,7 +11,16 @@
 
 @protocol PResponseSerializer <NSObject>
 
+/**
+ * Process response from thhe web service
+ * @param data from the web service.
+ * @return Generated objects.
+ */
 - (NSArray*)processResponse:(NSData*)data;
+
+/**
+ * Creates an entity builder
+ */
 - (id<PEntiityBuilder>)generateEntityBuilder;
 
 @end

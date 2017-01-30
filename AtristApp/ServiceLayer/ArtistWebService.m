@@ -8,8 +8,7 @@
 
 #import "ArtistWebService.h"
 #import "JasonResponseSerializer.h"
-
-static NSString *baseURL = @"";
+#import "config.h"
 
 @implementation ArtistWebService
 
@@ -17,7 +16,7 @@ static NSString *baseURL = @"";
     static ArtistWebService *sharedInstance = nil;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        sharedInstance = [[ArtistWebService alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
+        sharedInstance = [[ArtistWebService alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
         sharedInstance.responseSerializer = [[JasonResponseSerializer alloc] init];
     });
     
@@ -26,7 +25,7 @@ static NSString *baseURL = @"";
 
 - (void)callService:(void(^)(NSArray *resultArray, NSError *error))completionBlock
 {
-    [self getJsonResponse:@"https://dl.dropboxusercontent.com/s/u0d2hcnt1xw7l90/testdata.json" success:^(NSArray *responseArr) {
+    [self getJsonResponse:BASE_URL success:^(NSArray *responseArr) {
         completionBlock(responseArr,nil);
     } failure:^(NSError *error) {
         completionBlock(nil,error);
@@ -41,12 +40,9 @@ static NSString *baseURL = @"";
     // Asynchronously API is hit here
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                NSLog(@"%@",data);
                                                 if (error)
                                                     failure(error);
                                                 else {
-                                                    //NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                                    //NSLog(@"%@",json);
                                                     NSArray *responseArray = [self.responseSerializer processResponse:data];
                                                     success(responseArray);
                                                 }

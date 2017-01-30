@@ -19,9 +19,9 @@
 
 @implementation ImageDownloader
 
-- (instancetype)initWithURL:(NSString*)urlString {
+- (instancetype)initWithURL:(NSString*)urlString withFileName:(NSString*)crntfileName {
     if (self == [super init]) {
-        fileName = [[ArtistFacade getSharedInstance] generateFileNameFromURL:urlString];
+        fileName = crntfileName;
         NSURLSessionConfiguration *backgroundConfigurationObject = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:fileName];
         self.backgroundSession = [NSURLSession sessionWithConfiguration:backgroundConfigurationObject delegate:self delegateQueue:[NSOperationQueue mainQueue]];
         
@@ -44,43 +44,18 @@
     }
 }
 
-- (void)setCashing:(BOOL)enable {
-}
-
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
-    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)lastObject];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *destinationURL = [NSURL fileURLWithPath:[cacheDir stringByAppendingPathComponent:fileName]];
+    NSURL *destinationURL = [[ArtistFacade getSharedInstance] getDestinationURL:fileName];
     
     NSError *error = nil;
     
-    if ([fileManager fileExistsAtPath:[destinationURL path]]){
-        [fileManager replaceItemAtURL:destinationURL withItemAtURL:destinationURL backupItemName:nil options:NSFileManagerItemReplacementUsingNewMetadataOnly resultingItemURL:nil error:&error];
+    if ([fileManager moveItemAtURL:location toURL:destinationURL error:&error]) {
         [self.delegate downloadDidFinish:destinationURL];
-    }else{
-        
-        if ([fileManager moveItemAtURL:location toURL:destinationURL error:&error]) {
-            [self.delegate downloadDidFinish:destinationURL];
-        }else{
-            [self.delegate downloadDidFinish:nil];
-        }
-    }
-}
-
-
-- (BOOL)doesFileExist {
-    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)lastObject];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *destinationURL = [NSURL fileURLWithPath:[cacheDir stringByAppendingPathComponent:fileName]];
-    
-    if ([fileManager fileExistsAtPath:[destinationURL path]]) {
-        [self.delegate downloadDidFinish:destinationURL];
-        return YES;
     } else {
-        return NO;
+        [self.delegate downloadDidFinish:nil];
     }
 }
-
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 }

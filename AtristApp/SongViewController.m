@@ -21,7 +21,6 @@
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self == [super initWithCoder:aDecoder]) {
-        //resArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];;
         resArray = [[NSArray alloc] init];
     }
     
@@ -33,22 +32,32 @@
     self.tableView.estimatedRowHeight = 50;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    //UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [self initiatlize];
+}
+
+- (void)initiatlize {
     [[ArtistFacade getSharedInstance] callArtistService:^(NSArray *resultArray, NSError *error) {
-        resArray = resultArray;
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             [spinner stopAnimating];
+        });
+        
+        if (error != nil) {
+            [self showAlertView];
+        } else {
+            resArray = resultArray;
+        }
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
     }];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void)yesPressesd {
+    [super yesPressesd];
+    [self initiatlize];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -58,12 +67,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     if ([resArray count] > 0) {
         return [resArray count];
     } else {
@@ -81,7 +88,6 @@
         cell = [[SongNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierAction];
     }
     
-    //cell.textLabel.text = [resArray getSongName:indexPath.row];
     cell.songLbl.text = [resArray getSongName:indexPath.row];
     return cell;
 }

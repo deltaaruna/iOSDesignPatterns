@@ -8,7 +8,7 @@
 
 #import "JasonResponseSerializer.h"
 #import "SongDetailsBuilder.h"
-#import "PEntiityBuilder.h"
+#import "PSongEntityBuilder.h"
 #import "PSongDetails.h"
 
 static NSString *firstElement = @"playoutData";
@@ -21,7 +21,7 @@ static NSString *firstElement = @"playoutData";
     NSArray *playoutArray = resDic[firstElement];
     NSMutableArray *dataArray = [[NSMutableArray alloc] init];
     for (NSDictionary *dic in playoutArray) {
-        id<PEntiityBuilder> builder = [self generateEntityBuilder];
+        id<PSongEntityBuilder> builder = (id<PSongEntityBuilder>)[self generateEntityBuilder];
         [builder setEntityData:dic];
         id<PSongDetails> entity = [builder getEntity];
         [dataArray addObject:entity];
@@ -30,7 +30,7 @@ static NSString *firstElement = @"playoutData";
     return [dataArray copy];
 }
 
-- (id<PEntiityBuilder>)generateEntityBuilder
+- (id<PSongEntityBuilder>)generateEntityBuilder
 {
     return [[SongDetailsBuilder alloc] init];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "SuperTableViewController.h"
+#import "config.h"
 
 @interface SuperTableViewController ()
 
@@ -49,9 +50,44 @@
     [spinner startAnimating];
 }
 
+- (void)yesPressesd {
+    [spinner startAnimating];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showAlertView {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [spinner stopAnimating];
+        alertView = [[UIAlertView alloc] initWithTitle:ALERT_TITlE
+                                               message:ALERT_MESSAGE
+                                              delegate:self
+                                     cancelButtonTitle:@"YES"
+                                     otherButtonTitles:@"NO", nil];
+        [alertView show];
+    });
+    
+}
+
+- (void)alertView:(UIAlertView *)thisAlertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [thisAlertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"YES"])
+    {
+        [self yesPressesd];
+    }
+    else if([title isEqualToString:@"NO"])
+    {
+        [self noPressesd];
+    }
+}
+
+- (void)noPressesd {
+    [alertView dismissWithClickedButtonIndex:1 animated:YES];
 }
 
 #pragma mark - Table view data source

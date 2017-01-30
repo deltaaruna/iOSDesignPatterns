@@ -10,9 +10,6 @@
 
 @implementation SongDetails (TableRepresentation)
 
-//title, album, artist, album image, time (without the date),
-//and duration.
-
 - (NSArray*)getDataArray {
     [self extractTime];
     return [NSArray arrayWithObjects:self.title, self.album, self.artist, self.imageUrl, [self extractTime], self.duration, nil ];

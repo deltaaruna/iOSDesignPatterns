@@ -11,8 +11,16 @@
 
 @protocol PImageDownloader <NSObject>
 
+/**
+ * Download images
+ * @param urlString string of th url
+ */
 - (void)downloadImage:(NSString*)urlString;
-- (void)setCashing:(BOOL)enable;
+
+/**
+ * Set delegate
+ * @param delegate delegate to be set
+ */
 - (void)setDelegate:(id<DownLoadStateNotifyAdapter>)delegate;
 
 @end

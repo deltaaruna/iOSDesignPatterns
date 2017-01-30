@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PEntiityBuilder.h"
+#import "PSongEntityBuilder.h"
 #import "PSongDetails.h"
 
-@interface SongDetailsBuilder : NSObject<PEntiityBuilder>
+@interface SongDetailsBuilder : NSObject<PSongEntityBuilder>
 {
 
     id<PSongDetails> songObj;

@@ -11,13 +11,13 @@
 
 @interface SongDetails : NSObject<PSongDetails>
 
-@property NSString *artist;
-@property NSString *status;
-@property NSString *time;
-@property NSString *album;
-@property NSString *imageUrl;
-@property NSString *duration;
-@property NSString *title;
-@property NSString *type;
+@property(nonatomic, strong) NSString *artist;
+@property(nonatomic, strong) NSString *status;
+@property(nonatomic, strong) NSString *time;
+@property(nonatomic, strong) NSString *album;
+@property(nonatomic, strong) NSString *imageUrl;
+@property(nonatomic, strong) NSString *duration;
+@property(nonatomic, strong) NSString *title;
+@property(nonatomic, strong) NSString *type;
 
 @end

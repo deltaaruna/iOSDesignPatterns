@@ -16,7 +16,7 @@
 
 @property (nonatomic, weak)id<DownLoadStateNotifyAdapter> delegate;
 
-- (instancetype)initWithURL:(NSString*)urlString;
+- (instancetype)initWithURL:(NSString*)urlString withFileName:(NSString*)crntfileName;
 
 @end
 

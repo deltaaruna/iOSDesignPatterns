@@ -21,13 +21,14 @@
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self == [super initWithCoder:aDecoder]) {
-        //resArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];;
-        //self.imageDownloader = [ImageDownloader alloc] in
-        [[ArtistFacade getSharedInstance] setDelegate:self];
-        
+        [[ArtistFacade getSharedInstance] addDownloadDelegate:self];
     }
     
     return self;
+}
+
+- (void)dealloc {
+    [[ArtistFacade getSharedInstance] removeDownloadDelegate:self];
 }
 
 - (void)viewDidLoad {
@@ -36,12 +37,19 @@
     [self generateImageName];
     self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl] withCachingStatus:YES];
+    [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl]];
+}
+
+- (void)yesPressesd {
+    [super yesPressesd];
+    [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl]];
+}
+
+- (void)check:(id)obj {
+    if (savedImg == nil) {
+        [self showAlertView];
+    }
 }
 
 - (void)generateImageName {
@@ -84,6 +92,8 @@
         cell.songLbl.text = [self.songDetail getCellTitle:indexPath.row];
         if (savedImg != nil) {
             cell.songImageView.image = savedImg;
+        } else {
+            cell.songImageView.backgroundColor = [UIColor grayColor];
         }
         
         return cell;
@@ -91,6 +101,10 @@
 }
 
 - (void)downloadDidFinish:(NSURL*)filePath {
+    if (filePath == nil) {
+        [self showAlertView];
+        return;
+    }
     CFTimeInterval startTime = CACurrentMediaTime();
     CFTimeInterval elapsedTime = 0;
     while (imageName == nil && elapsedTime < 20) {

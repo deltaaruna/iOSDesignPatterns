@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SuperTableViewController : UITableViewController
+@interface SuperTableViewController : UITableViewController<UIAlertViewDelegate>
 {
     UIActivityIndicatorView *spinner;
+    UIAlertView *alertView;
 }
+
+- (void)yesPressesd;
+
+- (void)noPressesd;
+
+- (void)showAlertView;
 
 @end

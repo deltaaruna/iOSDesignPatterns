@@ -11,6 +11,7 @@
 @protocol PSongDetailLayout <NSObject>
 
 - (NSArray*)getDataArray;
+
 - (NSString*)getCellTitle:(NSUInteger)index;
 
 @end

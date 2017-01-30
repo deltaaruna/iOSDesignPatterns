@@ -6,12 +6,17 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/*****
+ This is the view controller that shows more details
+ ******/
+
 #import <UIKit/UIKit.h>
 #import "PSongDetails.h"
 #import "PSongDetailLayout.h"
 #import "PImageDownloader.h"
 #import "ArtistFacade.h"
 #import "SuperTableViewController.h"
+
 
 @interface SongDetailViewController : SuperTableViewController<DownLoadStateNotifyAdapterFacade>
 {
@@ -20,6 +25,7 @@
 }
 
 @property id<PSongDetails, PSongDetailLayout> songDetail;
-@property (nonatomic, retain) NSURL *imageURL;
+
+@property (nonatomic, strong) NSURL *imageURL;
 
 @end

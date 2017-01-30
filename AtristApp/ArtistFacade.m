@@ -14,7 +14,7 @@
 
 - (instancetype)init {
     if (self == [super init]) {
-        downloadInstanceDic = [[NSMutableDictionary alloc] init];
+        downloadStateDelegates = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -37,16 +37,41 @@
     }];
 }
 
-- (void)startImageDownload:(NSString*)urlStr withCachingStatus:(BOOL)status {
-    id<PImageDownloader> downLoader = [[ImageDownloader alloc] initWithURL:urlStr];
-    [downLoader setCashing:status];
-    //[downLoader downloadImage:urlStr];
-    [downLoader setDelegate:self];
-    [downloadInstanceDic setValue:downLoader forKey:urlStr];
+- (void)startImageDownload:(NSString*)urlStr {
+    NSString *fileName = [self generateFileNameFromURL:urlStr];
+    if ([self doesFileExist:fileName]) {
+        [self downloadDidFinish:[self getDestinationURL:fileName]];
+    } else {
+        id<PImageDownloader> downLoader = [[ImageDownloader alloc] initWithURL:urlStr withFileName:[self generateFileNameFromURL:urlStr]];
+        [downLoader setDelegate:self];
+    }
+}
+
+- (BOOL)doesFileExist:(NSString*)fileName {
+    NSURL *destinationURL = [self getDestinationURL:fileName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:[destinationURL path]]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (NSURL*)getDestinationURL:(NSString*)fileName {
+    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)lastObject];
+    return  [NSURL fileURLWithPath:[cacheDir stringByAppendingPathComponent:fileName]];
 }
 
 - (void)downloadDidFinish:(NSURL*)filePath {
-    [self.delegate downloadDidFinish:filePath];
+    for (id<DownLoadStateNotifyAdapterFacade> delegate in [downloadStateDelegates copy])
+    {
+        if (delegate != nil && [delegate respondsToSelector:@selector(downloadDidFinish:)])
+        {
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [delegate downloadDidFinish:filePath];
+            });
+        }
+    }
 }
 
 - (void)getSavedImage:(NSURL*)imageURL  andCompletionHandler:(void (^)(UIImage* result))completionHandler {
@@ -61,6 +86,14 @@
     NSString *noFileURL = [url stringByDeletingLastPathComponent];
     NSString *noShaslURL = [[noFileURL stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"/" withString:@""];
     return  [[noShaslURL stringByReplacingOccurrencesOfString:@"." withString:@""] stringByAppendingString:lastFileName];
+}
+
+- (void)addDownloadDelegate:(id<DownLoadStateNotifyAdapterFacade>)delegate {
+    [downloadStateDelegates addObject:delegate];
+}
+
+- (void)removeDownloadDelegate:(id<DownLoadStateNotifyAdapterFacade>)delegate {
+    [downloadStateDelegates removeObject:delegate];
 }
 
 @end

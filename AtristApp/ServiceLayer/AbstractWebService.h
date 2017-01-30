@@ -11,7 +11,16 @@
 
 @interface AbstractWebService : NSObject
 
+/**
+ * Main initalizer
+ * @param url - base url
+ */
 - (instancetype)initWithBaseURL:(NSURL*)url;
+
+/**
+ * Use to invoke the web service
+ * @-return array of resut objects via a block.
+ */
 - (void)callService:(void(^)(NSArray *resultArray, NSError *error))completionBlock;
 
 @property NSURL *baseURL;

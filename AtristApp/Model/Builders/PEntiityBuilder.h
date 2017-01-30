@@ -11,7 +11,16 @@
 
 @protocol PEntiityBuilder <NSObject>
 
+
+/**
+ * Get generated entity
+ */
 - (id<PEntity>)getEntity;
+
+/**
+ * Set data for the entity
+ * @-param - data - data to populate the entity
+ */
 - (void)setEntityData:(NSObject*)data;
 
 @end

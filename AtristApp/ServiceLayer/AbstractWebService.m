@@ -19,4 +19,7 @@
     return self;
 }
 
+- (void)callService:(void(^)(NSArray *resultArray, NSError *error))completionBlock {
+    NSLog(@"To be overidden");
+}
 @end
