@@ -10,4 +10,7 @@
 
 @interface SongNameCellTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *songLbl;
+
+
 @end

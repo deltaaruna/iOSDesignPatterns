@@ -1,28 +1,30 @@
 //
-//  SongViewController.m
+//  SongDetailViewController.m
 //  AtristApp
 //
 //  Created by pqj647 on 1/29/17.
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
-#import "SongViewController.h"
-#import "ArtistFacade.h"
-#import "NSArray+SongsTableRepresentation.h"
-#import "SongNameCellTableViewCell.h"
 #import "SongDetailViewController.h"
+#import "SongDetailTextCell.h"
+#import "SongDetailImageCell.h"
+#import "SongDetails+TableRepresentation.h"
 
-@interface SongViewController ()
+
+@interface SongDetailViewController ()
 
 @end
 
-@implementation SongViewController
+@implementation SongDetailViewController
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self == [super initWithCoder:aDecoder]) {
         //resArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];;
-        resArray = [[NSArray alloc] init];
+        //self.imageDownloader = [ImageDownloader alloc] in
+        [[ArtistFacade getSharedInstance] setDelegate:self];
+        
     }
     
     return self;
@@ -30,24 +32,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.estimatedRowHeight = 50;
+    imageName = nil;
+    [self generateImageName];
+    self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    //UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [[ArtistFacade getSharedInstance] callArtistService:^(NSArray *resultArray, NSError *error) {
-        resArray = resultArray;
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [spinner stopAnimating];
-            [self.tableView reloadData];
-        });
-    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl] withCachingStatus:YES];
+}
+
+- (void)generateImageName {
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       imageName = [[ArtistFacade getSharedInstance] generateFileNameFromURL:[self.songDetail imageUrl]];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,40 +58,61 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    if ([resArray count] > 0) {
-        return [resArray count];
-    } else {
-        return 0;
-    }
+    return [[self.songDetail getDataArray] count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifierAction = @"SongCell";
-    SongNameCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierAction forIndexPath:indexPath];
-    
-    if (cell == nil)
-    {
-        cell = [[SongNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierAction];
+    if (indexPath.row != (NSUInteger)3) {
+        SongDetailTextCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SongDetailCell" forIndexPath:indexPath];
+        if (cell == nil)
+        {
+            cell = [[SongDetailTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SongDetailCell"];
+        }
+        cell.songLbl.text = [self.songDetail getCellTitle:indexPath.row];
+        cell.songDetailLbl.text = [self.songDetail getDataArray][indexPath.row];
+        return cell;
+    } else {
+        SongDetailImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AlbumImageCell" forIndexPath:indexPath];
+        if (cell == nil)
+        {
+            cell = [[SongDetailImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AlbumImageCell"];
+        }
+        cell.songLbl.text = [self.songDetail getCellTitle:indexPath.row];
+        if (savedImg != nil) {
+            cell.songImageView.image = savedImg;
+        }
+        
+        return cell;
     }
-    
-    //cell.textLabel.text = [resArray getSongName:indexPath.row];
-    cell.songLbl.text = [resArray getSongName:indexPath.row];
-    return cell;
 }
 
-/**-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"SONG_DETAIL_SEGUE"]){
-        SongDetailViewController *controller = (SongDetailViewController *)segue.destinationViewController;
-        
+- (void)downloadDidFinish:(NSURL*)filePath {
+    CFTimeInterval startTime = CACurrentMediaTime();
+    CFTimeInterval elapsedTime = 0;
+    while (imageName == nil && elapsedTime < 20) {
+        [NSThread sleepForTimeInterval:0.1];
+        elapsedTime = CACurrentMediaTime() - startTime;
     }
+    if ([imageName isEqualToString:[filePath lastPathComponent]]) {
+        self.imageURL = filePath;
+        [[ArtistFacade getSharedInstance] getSavedImage:filePath andCompletionHandler:^(UIImage *result) {
+            savedImg = result;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [spinner stopAnimating];
+                [self.tableView reloadData];
+            });
+        }];
+    }
+}
+//[[ArtistFacade getSharedInstance] generateFileNameFromURL:urlString];
+/**- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 71.0;
 }**/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -136,12 +157,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SongDetailViewController *controller = (SongDetailViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SONG_DETAIL_VC"];
-    controller.songDetail = resArray[indexPath.row];
-    [self.navigationController pushViewController:controller animated:YES];
-}
 
 @end

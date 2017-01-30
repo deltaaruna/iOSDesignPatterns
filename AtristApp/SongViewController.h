@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SuperTableViewController.h"
 
-@interface SongViewController : UITableViewController
+@interface SongViewController : SuperTableViewController
 {
     NSArray *resArray;
 }

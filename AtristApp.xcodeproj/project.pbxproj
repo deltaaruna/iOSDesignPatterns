@@ -15,6 +15,10 @@
 		7D03E8231E3DE48D007303BF /* ArtistFacadeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8221E3DE48D007303BF /* ArtistFacadeTest.m */; };
 		7D03E82A1E3DF03C007303BF /* NSArray+SongsTableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8291E3DF03C007303BF /* NSArray+SongsTableRepresentation.m */; };
 		7D03E82E1E3E017A007303BF /* SongNameCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E82D1E3E017A007303BF /* SongNameCellTableViewCell.m */; };
+		7D03E8311E3E420C007303BF /* SongDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8301E3E420C007303BF /* SongDetailTextCell.m */; };
+		7D03E8341E3E4363007303BF /* SongDetailImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8331E3E4363007303BF /* SongDetailImageCell.m */; };
+		7D03E8371E3E464C007303BF /* SongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8361E3E464C007303BF /* SongDetailViewController.m */; };
+		7D03E83A1E3ED4AC007303BF /* SongDetails+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03E8391E3ED4AC007303BF /* SongDetails+TableRepresentation.m */; };
 		7D304F8D1E3C699D008D422E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304F8C1E3C699D008D422E /* main.m */; };
 		7D304F901E3C699D008D422E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304F8F1E3C699D008D422E /* AppDelegate.m */; };
 		7D304F931E3C699D008D422E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304F921E3C699D008D422E /* ViewController.m */; };
@@ -28,6 +32,8 @@
 		7D304FC81E3C789C008D422E /* AbstractWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FC71E3C789C008D422E /* AbstractWebService.m */; };
 		7D304FCC1E3C79CC008D422E /* JasonResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FCB1E3C79CC008D422E /* JasonResponseSerializer.m */; };
 		7D304FD11E3CC563008D422E /* SongDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FD01E3CC563008D422E /* SongDetails.m */; };
+		7DBAEE931E3EE68900339059 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE921E3EE68900339059 /* ImageDownloader.m */; };
+		7DBAEE961E3F4D4C00339059 /* SuperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,15 @@
 		7D03E8291E3DF03C007303BF /* NSArray+SongsTableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+SongsTableRepresentation.m"; path = "Categories/NSArray+SongsTableRepresentation.m"; sourceTree = "<group>"; };
 		7D03E82C1E3E017A007303BF /* SongNameCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongNameCellTableViewCell.h; path = CustomViews/SongNameCellTableViewCell.h; sourceTree = "<group>"; };
 		7D03E82D1E3E017A007303BF /* SongNameCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongNameCellTableViewCell.m; path = CustomViews/SongNameCellTableViewCell.m; sourceTree = "<group>"; };
+		7D03E82F1E3E420C007303BF /* SongDetailTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongDetailTextCell.h; path = CustomViews/SongDetailTextCell.h; sourceTree = "<group>"; };
+		7D03E8301E3E420C007303BF /* SongDetailTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongDetailTextCell.m; path = CustomViews/SongDetailTextCell.m; sourceTree = "<group>"; };
+		7D03E8321E3E4363007303BF /* SongDetailImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongDetailImageCell.h; path = CustomViews/SongDetailImageCell.h; sourceTree = "<group>"; };
+		7D03E8331E3E4363007303BF /* SongDetailImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongDetailImageCell.m; path = CustomViews/SongDetailImageCell.m; sourceTree = "<group>"; };
+		7D03E8351E3E464C007303BF /* SongDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongDetailViewController.h; sourceTree = "<group>"; };
+		7D03E8361E3E464C007303BF /* SongDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongDetailViewController.m; sourceTree = "<group>"; };
+		7D03E8381E3ED4AC007303BF /* SongDetails+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SongDetails+TableRepresentation.h"; path = "Categories/SongDetails+TableRepresentation.h"; sourceTree = "<group>"; };
+		7D03E8391E3ED4AC007303BF /* SongDetails+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SongDetails+TableRepresentation.m"; path = "Categories/SongDetails+TableRepresentation.m"; sourceTree = "<group>"; };
+		7D03E83B1E3EDBBA007303BF /* PSongDetailLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSongDetailLayout.h; path = Categories/PSongDetailLayout.h; sourceTree = "<group>"; };
 		7D304F881E3C699D008D422E /* AtristApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtristApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D304F8C1E3C699D008D422E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D304F8E1E3C699D008D422E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +106,11 @@
 		7D304FCF1E3CC563008D422E /* SongDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongDetails.h; sourceTree = "<group>"; };
 		7D304FD01E3CC563008D422E /* SongDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongDetails.m; sourceTree = "<group>"; };
 		7D6CE56C1E3CD62500584A9E /* PSongDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSongDetails.h; path = Model/PSongDetails.h; sourceTree = "<group>"; };
+		7DBAEE901E3EE5C500339059 /* PImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PImageDownloader.h; path = ServiceLayer/PImageDownloader.h; sourceTree = "<group>"; };
+		7DBAEE911E3EE68900339059 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageDownloader.h; path = ServiceLayer/ImageDownloader.h; sourceTree = "<group>"; };
+		7DBAEE921E3EE68900339059 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageDownloader.m; path = ServiceLayer/ImageDownloader.m; sourceTree = "<group>"; };
+		7DBAEE941E3F4D4C00339059 /* SuperTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperTableViewController.h; sourceTree = "<group>"; };
+		7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +143,9 @@
 			children = (
 				7D03E8281E3DF03C007303BF /* NSArray+SongsTableRepresentation.h */,
 				7D03E8291E3DF03C007303BF /* NSArray+SongsTableRepresentation.m */,
+				7D03E8381E3ED4AC007303BF /* SongDetails+TableRepresentation.h */,
+				7D03E8391E3ED4AC007303BF /* SongDetails+TableRepresentation.m */,
+				7D03E83B1E3EDBBA007303BF /* PSongDetailLayout.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -132,6 +155,10 @@
 			children = (
 				7D03E82C1E3E017A007303BF /* SongNameCellTableViewCell.h */,
 				7D03E82D1E3E017A007303BF /* SongNameCellTableViewCell.m */,
+				7D03E82F1E3E420C007303BF /* SongDetailTextCell.h */,
+				7D03E8301E3E420C007303BF /* SongDetailTextCell.m */,
+				7D03E8321E3E4363007303BF /* SongDetailImageCell.h */,
+				7D03E8331E3E4363007303BF /* SongDetailImageCell.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -176,6 +203,10 @@
 				7D304FBF1E3C6C5B008D422E /* ArtistFacade.m */,
 				7D03E8191E3DBBA8007303BF /* SongViewController.h */,
 				7D03E81A1E3DBBA8007303BF /* SongViewController.m */,
+				7D03E8351E3E464C007303BF /* SongDetailViewController.h */,
+				7D03E8361E3E464C007303BF /* SongDetailViewController.m */,
+				7DBAEE941E3F4D4C00339059 /* SuperTableViewController.h */,
+				7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */,
 			);
 			path = AtristApp;
 			sourceTree = "<group>";
@@ -221,6 +252,9 @@
 				7D304FC91E3C7993008D422E /* PResponseSerializer.h */,
 				7D304FCA1E3C79CC008D422E /* JasonResponseSerializer.h */,
 				7D304FCB1E3C79CC008D422E /* JasonResponseSerializer.m */,
+				7DBAEE901E3EE5C500339059 /* PImageDownloader.h */,
+				7DBAEE911E3EE68900339059 /* ImageDownloader.h */,
+				7DBAEE921E3EE68900339059 /* ImageDownloader.m */,
 			);
 			name = ServiceLayer;
 			sourceTree = "<group>";
@@ -382,15 +416,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D304FC51E3C7794008D422E /* ArtistWebService.m in Sources */,
+				7D03E8311E3E420C007303BF /* SongDetailTextCell.m in Sources */,
 				7D03E82E1E3E017A007303BF /* SongNameCellTableViewCell.m in Sources */,
 				7D304FC01E3C6C5B008D422E /* ArtistFacade.m in Sources */,
+				7D03E8371E3E464C007303BF /* SongDetailViewController.m in Sources */,
 				7D304FC81E3C789C008D422E /* AbstractWebService.m in Sources */,
 				7D03E82A1E3DF03C007303BF /* NSArray+SongsTableRepresentation.m in Sources */,
+				7DBAEE961E3F4D4C00339059 /* SuperTableViewController.m in Sources */,
 				7D304F931E3C699D008D422E /* ViewController.m in Sources */,
 				7D304F901E3C699D008D422E /* AppDelegate.m in Sources */,
 				7D03E8181E3D7FD3007303BF /* SongDetailsBuilder.m in Sources */,
+				7D03E8341E3E4363007303BF /* SongDetailImageCell.m in Sources */,
 				7D304FD11E3CC563008D422E /* SongDetails.m in Sources */,
 				7D304F8D1E3C699D008D422E /* main.m in Sources */,
+				7D03E83A1E3ED4AC007303BF /* SongDetails+TableRepresentation.m in Sources */,
+				7DBAEE931E3EE68900339059 /* ImageDownloader.m in Sources */,
 				7D304FCC1E3C79CC008D422E /* JasonResponseSerializer.m in Sources */,
 				7D03E81B1E3DBBA8007303BF /* SongViewController.m in Sources */,
 			);
@@ -545,6 +585,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DNSTESXL8W;
 				INFOPLIST_FILE = AtristApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zebra.AtristApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,6 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DNSTESXL8W;
 				INFOPLIST_FILE = AtristApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zebra.AtristApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
