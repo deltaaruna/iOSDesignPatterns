@@ -46,12 +46,6 @@
     [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl]];
 }
 
-- (void)check:(id)obj {
-    if (savedImg == nil) {
-        [self showAlertView];
-    }
-}
-
 - (void)generateImageName {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
        imageName = [[ArtistFacade getSharedInstance] generateFileNameFromURL:[self.songDetail imageUrl]];
