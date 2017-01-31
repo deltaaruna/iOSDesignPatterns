@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SongNameCellTableViewCell.h"
+#import "LazyUIImageView.h"
 
 @interface SongDetailImageCell : SongNameCellTableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *songImageView;
+@property (weak, nonatomic) IBOutlet LazyUIImageView *songImageView;
 
 @end

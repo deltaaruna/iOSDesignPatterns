@@ -11,6 +11,7 @@
 #import "NSArray+SongsTableRepresentation.h"
 #import "SongNameCellTableViewCell.h"
 #import "SongDetailViewController.h"
+#import "config.h"
 
 @interface SongViewController ()
 
@@ -80,7 +81,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifierAction = @"SongCell";
+    static NSString *CellIdentifierAction = SONG_CELL;
     SongNameCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierAction forIndexPath:indexPath];
     
     if (cell == nil)
@@ -145,7 +146,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SongDetailViewController *controller = (SongDetailViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SONG_DETAIL_VC"];
+    SongDetailViewController *controller = (SongDetailViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:SONG_DETAIL_VC];
     controller.songDetail = resArray[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }

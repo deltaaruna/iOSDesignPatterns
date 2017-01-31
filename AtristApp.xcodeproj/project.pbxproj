@@ -34,6 +34,7 @@
 		7DBAEE931E3EE68900339059 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE921E3EE68900339059 /* ImageDownloader.m */; };
 		7DBAEE961E3F4D4C00339059 /* SuperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */; };
 		7DBAEE9E1E405E0D00339059 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE9D1E405E0D00339059 /* AppHelper.m */; };
+		7DBAEEA11E406F7200339059 /* LazyUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEEA01E406F7200339059 /* LazyUIImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,9 @@
 		7DBAEE9B1E3FEFE200339059 /* PSongEntityBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSongEntityBuilder.h; path = Model/Builders/PSongEntityBuilder.h; sourceTree = "<group>"; };
 		7DBAEE9C1E405E0D00339059 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelper.h; sourceTree = "<group>"; };
 		7DBAEE9D1E405E0D00339059 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelper.m; sourceTree = "<group>"; };
+		7DBAEE9F1E406F7200339059 /* LazyUIImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LazyUIImageView.h; path = CustomViews/LazyUIImageView.h; sourceTree = "<group>"; };
+		7DBAEEA01E406F7200339059 /* LazyUIImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LazyUIImageView.m; path = CustomViews/LazyUIImageView.m; sourceTree = "<group>"; };
+		7DBAEEA21E40835700339059 /* PLazyLoadUIImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLazyLoadUIImageView.h; path = CustomViews/PLazyLoadUIImageView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,9 @@
 				7D03E8301E3E420C007303BF /* SongDetailTextCell.m */,
 				7D03E8321E3E4363007303BF /* SongDetailImageCell.h */,
 				7D03E8331E3E4363007303BF /* SongDetailImageCell.m */,
+				7DBAEE9F1E406F7200339059 /* LazyUIImageView.h */,
+				7DBAEEA01E406F7200339059 /* LazyUIImageView.m */,
+				7DBAEEA21E40835700339059 /* PLazyLoadUIImageView.h */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -430,6 +437,7 @@
 				7D304F901E3C699D008D422E /* AppDelegate.m in Sources */,
 				7D03E8181E3D7FD3007303BF /* SongDetailsBuilder.m in Sources */,
 				7D03E8341E3E4363007303BF /* SongDetailImageCell.m in Sources */,
+				7DBAEEA11E406F7200339059 /* LazyUIImageView.m in Sources */,
 				7DBAEE9E1E405E0D00339059 /* AppHelper.m in Sources */,
 				7D304FD11E3CC563008D422E /* SongDetails.m in Sources */,
 				7D304F8D1E3C699D008D422E /* main.m in Sources */,

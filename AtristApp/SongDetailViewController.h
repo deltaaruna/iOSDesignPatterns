@@ -16,9 +16,10 @@
 #import "PImageDownloader.h"
 #import "ArtistFacade.h"
 #import "SuperTableViewController.h"
+#import "LazyUIImageView.h"
 
 
-@interface SongDetailViewController : SuperTableViewController<DownLoadStateNotifyAdapterFacade>
+@interface SongDetailViewController : SuperTableViewController<DownLoadStateNotifyAdapterFacade, LazyLoadProtocol>
 {
     UIImage *savedImg;
     NSString *imageName;

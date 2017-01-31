@@ -11,6 +11,8 @@
 #import "SongDetailImageCell.h"
 #import "SongDetails+TableRepresentation.h"
 #import "AppHelper.h"
+#import "PLazyLoadUIImageView.h"
+#import "config.h"
 
 @interface SongDetailViewController ()
 
@@ -38,7 +40,6 @@
     self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl]];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:90
                                              target: self
                                            selector: @selector(checkConnectivity:)
@@ -54,6 +55,10 @@
             [[AppHelper getSharedInstance] showAlertViewOK:self];
         });
     }
+}
+
+- (void)notifyToStartDownload {
+    [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl]];
 }
 
 - (void)yesPressesd {
@@ -84,26 +89,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != (NSUInteger)3) {
-        SongDetailTextCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SongDetailCell" forIndexPath:indexPath];
+        SongDetailTextCell *cell = [tableView dequeueReusableCellWithIdentifier:SONG_DETAIL_CELL forIndexPath:indexPath];
         if (cell == nil)
         {
-            cell = [[SongDetailTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SongDetailCell"];
+            cell = [[SongDetailTextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SONG_DETAIL_CELL];
         }
         cell.songLbl.text = [self.songDetail getCellTitle:indexPath.row];
         cell.songDetailLbl.text = [self.songDetail getDataArray][indexPath.row];
+        
         return cell;
     } else {
-        SongDetailImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AlbumImageCell" forIndexPath:indexPath];
+        SongDetailImageCell *cell = [tableView dequeueReusableCellWithIdentifier:ALBUM_IMAGE_CELL forIndexPath:indexPath];
         if (cell == nil)
         {
-            cell = [[SongDetailImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AlbumImageCell"];
+            cell = [[SongDetailImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ALBUM_IMAGE_CELL];
         }
         cell.songLbl.text = [self.songDetail getCellTitle:indexPath.row];
-        if (savedImg != nil) {
-            cell.songImageView.image = savedImg;
-        } else {
-            cell.songImageView.backgroundColor = [UIColor grayColor];
+        
+        id<PLazyLoadUIImageView> imgView = cell.songImageView;
+        if ([imgView lazyLoadDelegate] == nil) {
+            [imgView setLazyLoadDelegate:self];
         }
+        [imgView setImage:savedImg];
         
         return cell;
     }
