@@ -144,8 +144,7 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SongDetailViewController *controller = (SongDetailViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:SONG_DETAIL_VC];
     controller.songDetail = resArray[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];

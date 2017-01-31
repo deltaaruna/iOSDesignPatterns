@@ -7,8 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SongViewController.h"
 
-@interface AtristAppUITests : XCTestCase
+@interface AtristAppUITests : XCTestCase {
+    //AppDelegate    *appDelegate;
+    SongViewController *songViewController;
+    UIView             *songView;
+}
 
 @end
 

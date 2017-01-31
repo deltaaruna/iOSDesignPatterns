@@ -20,8 +20,7 @@
 
 @implementation SongDetailViewController
 
-- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
-{
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self == [super initWithCoder:aDecoder]) {
         [[ArtistFacade getSharedInstance] addDownloadDelegate:self];
     }

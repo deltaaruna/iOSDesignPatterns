@@ -21,8 +21,7 @@ static NSString *type = @"type";
 
 @implementation SongDetailsBuilder
 
-- (instancetype)init
-{
+- (instancetype)init {
     if (self == [super init]) {
         songObj = [[SongDetails alloc] init];
     }
@@ -30,12 +29,10 @@ static NSString *type = @"type";
     return self;
 }
 
-- (id<PSongDetails>)getEntity
-{
+- (id<PSongDetails>)getEntity {
     return songObj;
 }
-- (void)setEntityData:(NSDictionary*)data
-{
+- (void)setEntityData:(NSDictionary*)data {
     resultDic = data;
     if ([self isKeyExist:album]) {
         [songObj setAlbum:[data valueForKey:album]];
@@ -63,8 +60,7 @@ static NSString *type = @"type";
     }
 }
 
-- (BOOL)isKeyExist:(NSString*)key
-{
+- (BOOL)isKeyExist:(NSString*)key {
     if([resultDic valueForKey:key] != nil) {
         // The key existed
         return YES;

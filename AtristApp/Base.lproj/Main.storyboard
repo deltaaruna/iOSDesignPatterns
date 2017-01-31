@@ -11,7 +11,7 @@
         <!--Songs-->
         <scene sceneID="nhe-Qp-xyx">
             <objects>
-                <tableViewController id="PJQ-7A-JkT" customClass="SongViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SongViewController" id="PJQ-7A-JkT" customClass="SongViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="1gk-bT-8g6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

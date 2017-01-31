@@ -35,6 +35,8 @@
 		7DBAEE961E3F4D4C00339059 /* SuperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */; };
 		7DBAEE9E1E405E0D00339059 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE9D1E405E0D00339059 /* AppHelper.m */; };
 		7DBAEEA11E406F7200339059 /* LazyUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEEA01E406F7200339059 /* LazyUIImageView.m */; };
+		7DBAEEA61E40ACC600339059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D304F941E3C699D008D422E /* Main.storyboard */; };
+		7DBAEEA71E40AD3700339059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D304F941E3C699D008D422E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBAEEA71E40AD3700339059 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBAEEA61E40ACC600339059 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

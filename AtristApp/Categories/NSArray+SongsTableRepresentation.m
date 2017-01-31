@@ -11,8 +11,7 @@
 
 @implementation NSArray (SongsTableRepresentation)
 
-- (NSString*)getSongName:(NSUInteger)index
-{
+- (NSString*)getSongName:(NSUInteger)index {
     NSObject *obj = [self objectAtIndex:index];
     if ([obj isKindOfClass:[SongDetails class]]) {
         SongDetails *songDt = (SongDetails*)obj;

@@ -42,8 +42,7 @@
     return nil;
 }
 
-- (NSString*)extractTime
-{
+- (NSString*)extractTime {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss+HH:mm"];
     NSDate *date = [dateFormat dateFromString:@"2016-12-20T14:41:44+11:00"];

@@ -10,8 +10,7 @@
 
 @implementation AbstractWebService
 
-- (instancetype)initWithBaseURL:(NSURL*)url
-{
+- (instancetype)initWithBaseURL:(NSURL*)url {
     if (self == [super init]) {
         self.baseURL = url;
     }

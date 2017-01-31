@@ -23,8 +23,7 @@
     return sharedInstance;
 }
 
-- (void)callService:(void(^)(NSArray *resultArray, NSError *error))completionBlock
-{
+- (void)callService:(void(^)(NSArray *resultArray, NSError *error))completionBlock {
     [self getJsonResponse:BASE_URL success:^(NSArray *responseArr) {
         completionBlock(responseArr,nil);
     } failure:^(NSError *error) {

@@ -15,8 +15,7 @@ static NSString *firstElement = @"playoutData";
 
 @implementation JasonResponseSerializer
 
-- (NSArray*)processResponse:(NSData*)data
-{
+- (NSArray*)processResponse:(NSData*)data {
     NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSArray *playoutArray = resDic[firstElement];
     NSMutableArray *dataArray = [[NSMutableArray alloc] init];
@@ -30,8 +29,7 @@ static NSString *firstElement = @"playoutData";
     return [dataArray copy];
 }
 
-- (id<PSongEntityBuilder>)generateEntityBuilder
-{
+- (id<PSongEntityBuilder>)generateEntityBuilder {
     return [[SongDetailsBuilder alloc] init];
 }
 
