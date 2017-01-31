@@ -6,6 +6,10 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * Interface for All Response serializers
+ */
+
 #import <Foundation/Foundation.h>
 #import "PEntiityBuilder.h"
 

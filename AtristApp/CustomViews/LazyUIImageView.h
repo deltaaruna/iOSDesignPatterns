@@ -6,6 +6,10 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * This class UIImageView subclass for lazy loading proxy pattern
+ */
+
 #import <UIKit/UIKit.h>
 #import "PLazyLoadUIImageView.h"
 
@@ -13,6 +17,9 @@
 
 @interface LazyUIImageView : UIImageView<PLazyLoadUIImageView>
 
+/**
+ * lazy loading protocol
+ */
 @property(nonatomic, weak) id<LazyLoadProtocol> lazyLoadDelegate;
 
 @end

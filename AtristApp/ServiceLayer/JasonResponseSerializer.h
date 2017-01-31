@@ -6,6 +6,11 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * This class serialize jason responses
+ *
+ */
+
 #import <Foundation/Foundation.h>
 #import "PResponseSerializer.h"
 

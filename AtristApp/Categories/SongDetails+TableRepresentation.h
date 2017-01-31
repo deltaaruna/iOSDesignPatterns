@@ -6,6 +6,10 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * This category is used to desplay SongDetails entity in a table
+ */
+
 #import "SongDetails.h"
 #import "PSongDetailLayout.h"
 

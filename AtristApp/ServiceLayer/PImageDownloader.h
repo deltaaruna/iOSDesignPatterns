@@ -6,6 +6,10 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * Interface for Image Downloader
+ */
+
 #import <Foundation/Foundation.h>
 @protocol DownLoadStateNotifyAdapter;
 

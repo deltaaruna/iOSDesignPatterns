@@ -14,6 +14,10 @@
 
 @interface SongViewController : SuperTableViewController
 {
+    /**
+     * Array that contain table data
+     *
+     */
     NSArray *resArray;
 }
 

@@ -66,8 +66,16 @@
  */
 - (NSURL*)getDestinationURL:(NSString*)fileName;
 
+/**
+ * Add delegate to the list
+ * @param delegate to be added
+ */
 - (void)addDownloadDelegate:(id<DownLoadStateNotifyAdapterFacade>)delegate;
 
+/**
+ * Remove delegate from the list
+ * @param delegate to be removed
+ */
 - (void)removeDownloadDelegate:(id<DownLoadStateNotifyAdapterFacade>)delegate;
 
 @end

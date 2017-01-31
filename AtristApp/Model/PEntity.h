@@ -6,6 +6,10 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * Interface for all the entities in the project
+ */
+
 #import <Foundation/Foundation.h>
 
 @protocol PEntity <NSObject>

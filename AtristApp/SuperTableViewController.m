@@ -56,34 +56,6 @@
 }
 
 - (void)showAlertView {
-    /**dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertController * alert =   [UIAlertController
-                                      alertControllerWithTitle:ALERT_TITlE
-                                      message:ALERT_MESSAGE
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* ok = [UIAlertAction
-                             actionWithTitle:@"OK"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
-                             {
-                                 [self yesPressesd];
-                                 
-                             }];
-        UIAlertAction* cancel = [UIAlertAction
-                                 actionWithTitle:@"NO"
-                                 style:UIAlertActionStyleDefault
-                                 handler:^(UIAlertAction * action)
-                                 {
-                                     [self noPressesd];
-                                     
-                                 }];
-        
-        [alert addAction:ok];
-        [alert addAction:cancel];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    });**/
     [[AppHelper getSharedInstance] showAlertViewOKCancel:self];
 }
 

@@ -6,6 +6,11 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * Abstract class for services
+ *
+ */
+
 #import <Foundation/Foundation.h>
 #import "PResponseSerializer.h"
 
@@ -19,11 +24,18 @@
 
 /**
  * Use to invoke the web service
- * @-return array of resut objects via a block.
+ * Block gives the result array
  */
 - (void)callService:(void(^)(NSArray *resultArray, NSError *error))completionBlock;
 
+/**
+ * Base url
+ */
 @property NSURL *baseURL;
+
+/**
+ * ResponseSerializer instance
+ */
 @property id<PResponseSerializer> responseSerializer;
 
 @end

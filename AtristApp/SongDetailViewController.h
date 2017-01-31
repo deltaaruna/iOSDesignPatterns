@@ -21,12 +21,27 @@
 
 @interface SongDetailViewController : SuperTableViewController<DownLoadStateNotifyAdapterFacade, LazyLoadProtocol>
 {
+    /**
+     * Downloaded image
+     *
+     */
     UIImage *savedImg;
+    
+    /**
+     * Name of the image
+     *
+     */
     NSString *imageName;
 }
 
+/**
+ * SongDetails entity
+ */
 @property id<PSongDetails, PSongDetailLayout> songDetail;
 
+/**
+ * Image URL
+ */
 @property (nonatomic, strong) NSURL *imageURL;
 
 @end

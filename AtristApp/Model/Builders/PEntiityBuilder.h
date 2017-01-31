@@ -6,6 +6,10 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * Interface for the entity builder
+ */
+
 #import <Foundation/Foundation.h>
 #import "PEntity.h"
 

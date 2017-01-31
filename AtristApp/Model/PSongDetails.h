@@ -6,10 +6,18 @@
 //  Copyright © 2017 pqj647. All rights reserved.
 //
 
+/**
+ * Interface for SongDetails entity in the project
+ */
+
 #import <Foundation/Foundation.h>
 #import "PEntity.h"
 
 @protocol PSongDetails <PEntity>
+
+/****
+ Following are Getters and setters for all the fields in the entity
+ ***/
 
 - (NSString*)album;
 - (void)setAlbum:(NSString*)album;
