@@ -14,7 +14,9 @@
 #import "PLazyLoadUIImageView.h"
 #import "config.h"
 
-@interface SongDetailViewController ()
+@interface SongDetailViewController () {
+    NSTimer *timer;
+}
 
 @end
 
@@ -32,18 +34,30 @@
     [[ArtistFacade getSharedInstance] removeDownloadDelegate:self];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      timer  = [NSTimer scheduledTimerWithTimeInterval:90
+                                           target: self
+                                         selector: @selector(checkConnectivity:)
+                                         userInfo: nil
+                                          repeats: YES];
+    });
+}
+
+- (void)viewWillDisAppear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [timer invalidate];
+    });
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     imageName = nil;
     [self generateImageName];
     self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:90
-                                             target: self
-                                           selector: @selector(checkConnectivity:)
-                                           userInfo: nil
-                                            repeats: YES];
 }
 
 - (void)checkConnectivity:(id)instance {
