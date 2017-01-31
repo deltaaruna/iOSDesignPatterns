@@ -33,6 +33,7 @@
 		7D304FD11E3CC563008D422E /* SongDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D304FD01E3CC563008D422E /* SongDetails.m */; };
 		7DBAEE931E3EE68900339059 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE921E3EE68900339059 /* ImageDownloader.m */; };
 		7DBAEE961E3F4D4C00339059 /* SuperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */; };
+		7DBAEE9E1E405E0D00339059 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAEE9D1E405E0D00339059 /* AppHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperTableViewController.m; sourceTree = "<group>"; };
 		7DBAEE9A1E3FD5CA00339059 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		7DBAEE9B1E3FEFE200339059 /* PSongEntityBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSongEntityBuilder.h; path = Model/Builders/PSongEntityBuilder.h; sourceTree = "<group>"; };
+		7DBAEE9C1E405E0D00339059 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelper.h; sourceTree = "<group>"; };
+		7DBAEE9D1E405E0D00339059 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 				7D03E8361E3E464C007303BF /* SongDetailViewController.m */,
 				7DBAEE941E3F4D4C00339059 /* SuperTableViewController.h */,
 				7DBAEE951E3F4D4C00339059 /* SuperTableViewController.m */,
+				7DBAEE9C1E405E0D00339059 /* AppHelper.h */,
+				7DBAEE9D1E405E0D00339059 /* AppHelper.m */,
 			);
 			path = AtristApp;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				7D304F901E3C699D008D422E /* AppDelegate.m in Sources */,
 				7D03E8181E3D7FD3007303BF /* SongDetailsBuilder.m in Sources */,
 				7D03E8341E3E4363007303BF /* SongDetailImageCell.m in Sources */,
+				7DBAEE9E1E405E0D00339059 /* AppHelper.m in Sources */,
 				7D304FD11E3CC563008D422E /* SongDetails.m in Sources */,
 				7D304F8D1E3C699D008D422E /* main.m in Sources */,
 				7D03E83A1E3ED4AC007303BF /* SongDetails+TableRepresentation.m in Sources */,

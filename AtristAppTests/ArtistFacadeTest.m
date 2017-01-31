@@ -37,10 +37,4 @@
     }];
 }
 
-- (void)testSingleTon {
-    service = [ArtistWebService getSharedInstance];
-    ArtistWebService *objTwo = [ArtistWebService getSharedInstance];
-    XCTAssertEqualObjects(service, objTwo);
-}
-
 @end

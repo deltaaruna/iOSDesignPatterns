@@ -8,6 +8,7 @@
 
 #import "SuperTableViewController.h"
 #import "config.h"
+#import "AppHelper.h"
 
 @interface SuperTableViewController ()
 
@@ -55,34 +56,35 @@
 }
 
 - (void)showAlertView {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [spinner stopAnimating];
-        alertView = [[UIAlertView alloc] initWithTitle:ALERT_TITlE
-                                               message:ALERT_MESSAGE
-                                              delegate:self
-                                     cancelButtonTitle:@"YES"
-                                     otherButtonTitles:@"NO", nil];
-        [alertView show];
-    });
-    
-}
-
-- (void)alertView:(UIAlertView *)thisAlertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *title = [thisAlertView buttonTitleAtIndex:buttonIndex];
-    
-    if([title isEqualToString:@"YES"])
-    {
-        [self yesPressesd];
-    }
-    else if([title isEqualToString:@"NO"])
-    {
-        [self noPressesd];
-    }
-}
-
-- (void)noPressesd {
-    [alertView dismissWithClickedButtonIndex:1 animated:YES];
+    /**dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController * alert =   [UIAlertController
+                                      alertControllerWithTitle:ALERT_TITlE
+                                      message:ALERT_MESSAGE
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [self yesPressesd];
+                                 
+                             }];
+        UIAlertAction* cancel = [UIAlertAction
+                                 actionWithTitle:@"NO"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [self noPressesd];
+                                     
+                                 }];
+        
+        [alert addAction:ok];
+        [alert addAction:cancel];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    });**/
+    [[AppHelper getSharedInstance] showAlertViewOKCancel:self];
 }
 
 #pragma mark - Table view data source

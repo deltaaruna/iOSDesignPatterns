@@ -10,7 +10,7 @@
 #import "SongDetailTextCell.h"
 #import "SongDetailImageCell.h"
 #import "SongDetails+TableRepresentation.h"
-
+#import "AppHelper.h"
 
 @interface SongDetailViewController ()
 
@@ -39,6 +39,21 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     [[ArtistFacade getSharedInstance] startImageDownload:[self.songDetail imageUrl]];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:90
+                                             target: self
+                                           selector: @selector(checkConnectivity:)
+                                           userInfo: nil
+                                            repeats: YES];
+}
+
+- (void)checkConnectivity:(id)instance {
+    //After 90 seconds if the image is not dowanloaded user is informed about that
+    if ([spinner isAnimating]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [spinner stopAnimating];
+            [[AppHelper getSharedInstance] showAlertViewOK:self];
+        });
+    }
 }
 
 - (void)yesPressesd {
