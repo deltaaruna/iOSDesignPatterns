@@ -23,27 +23,29 @@
 }
 
 - (void)setupSpinner {
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spinner setColor:[UIColor grayColor]];
-    spinner.translatesAutoresizingMaskIntoConstraints = NO;
-    spinner.hidesWhenStopped = YES;
-    [self.view addSubview:spinner];
-    
-    [self.tableView addConstraints:@[
-                                     [NSLayoutConstraint constraintWithItem:spinner
-                                                                  attribute:NSLayoutAttributeCenterX
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.view
-                                                                  attribute:NSLayoutAttributeCenterX
-                                                                 multiplier:1 constant:0],
-                                     [NSLayoutConstraint constraintWithItem:spinner
-                                                                  attribute:NSLayoutAttributeCenterY
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self.view
-                                                                  attribute:NSLayoutAttributeCenterY
-                                                                 multiplier:1 constant:0]
-                                     ]];
-    [spinner startAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [spinner setColor:[UIColor grayColor]];
+        spinner.translatesAutoresizingMaskIntoConstraints = NO;
+        spinner.hidesWhenStopped = YES;
+        [self.view addSubview:spinner];
+        
+        [self.tableView addConstraints:@[
+                                         [NSLayoutConstraint constraintWithItem:spinner
+                                                                      attribute:NSLayoutAttributeCenterX
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:self.view
+                                                                      attribute:NSLayoutAttributeCenterX
+                                                                     multiplier:1 constant:0],
+                                         [NSLayoutConstraint constraintWithItem:spinner
+                                                                      attribute:NSLayoutAttributeCenterY
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:self.view
+                                                                      attribute:NSLayoutAttributeCenterY
+                                                                     multiplier:1 constant:0]
+                                         ]];
+        [spinner startAnimating];
+    });
 }
 
 - (void)yesPressesd {

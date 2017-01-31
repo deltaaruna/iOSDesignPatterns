@@ -42,8 +42,10 @@
                                                 if (error)
                                                     failure(error);
                                                 else {
-                                                    NSArray *responseArray = [self.responseSerializer processResponse:data];
-                                                    success(responseArray);
+                                                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                        NSArray *responseArray = [self.responseSerializer processResponse:data];
+                                                        success(responseArray);
+                                                    });
                                                 }
                                             }];
     [dataTask resume];    // Executed First
