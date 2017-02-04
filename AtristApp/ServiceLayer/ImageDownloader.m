@@ -51,9 +51,15 @@
     NSError *error = nil;
     
     if ([fileManager moveItemAtURL:location toURL:destinationURL error:&error]) {
-        [self.delegate downloadDidFinish:destinationURL];
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(downloadDidFinish:)])
+        {
+            [self.delegate downloadDidFinish:destinationURL];
+        }
     } else {
-        [self.delegate downloadDidFinish:nil];
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(downloadDidFinish:)])
+        {
+            [self.delegate downloadDidFinish:nil];
+        }
     }
 }
 
